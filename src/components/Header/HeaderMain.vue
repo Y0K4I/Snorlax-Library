@@ -34,6 +34,7 @@ header {
   color: var(--surface-0);
   font-size: 24px;
   font-weight: 700;
+  margin-bottom: 50px;
   .header {
     width: 90%;
     height: 100%;
