@@ -1,7 +1,6 @@
 <template>
-  <HeaderMain></HeaderMain>
-  <nav><router-link to="/">Home</router-link> |</nav>
-  <router-view />
+  <HeaderMain />
+  <router-view></router-view>
 </template>
 
 <script lang="ts">
@@ -17,12 +16,20 @@ export default class App extends Vue {}
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600;700&display=swap");
+html {
+  height: 100%;
+}
 
 body {
+  height: 100%;
   margin: 0 auto;
   padding: 0;
 
   font-family: var(--font-family);
+  background-color: var(--surface-400);
+}
+
+#app {
+  height: 100%;
 }
 </style>

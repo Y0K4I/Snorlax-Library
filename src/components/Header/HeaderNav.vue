@@ -9,7 +9,6 @@
       </li>
     </ul>
   </nav>
-  <router-view />
 </template>
 
 <script lang="ts">
@@ -54,7 +53,7 @@ nav {
         }
         &:not(.router-link-active):hover {
           background-color: var(--blue-300);
-          transition: 0.5s;
+          transition: 0.2s;
           color: var(--surface-0);
         }
       }
