@@ -11,15 +11,13 @@
   </nav>
 </template>
 
-<script lang="ts">
-import { Vue } from "vue-property-decorator";
+<script setup lang="ts">
+import { reactive } from "vue";
 
-export default class HeaderNav extends Vue {
-  items = [
-    { label: "Pokedex", icon: "pi pi-book", to: "/" },
-    { label: "Info", icon: "pi pi-info", to: "/info" },
-  ];
-}
+const items = reactive([
+  { label: "Pokedex", icon: "pi pi-book", to: "/" },
+  { label: "Info", icon: "pi pi-info", to: "/info" },
+]);
 </script>
 
 <style scoped lang="scss">

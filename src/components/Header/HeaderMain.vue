@@ -12,16 +12,8 @@
   </header>
 </template>
 
-<script>
-import { Options, Vue } from "vue-property-decorator";
-import HeaderNav from "./HeaderNav";
-
-@Options({
-  components: {
-    HeaderNav,
-  },
-})
-export default class HeaderMain extends Vue {}
+<script setup lang="ts">
+import HeaderNav from "@/components/Header/HeaderNav.vue";
 </script>
 
 <style scoped lang="scss">

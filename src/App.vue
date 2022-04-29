@@ -3,16 +3,8 @@
   <router-view></router-view>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from "vue-property-decorator";
-import HeaderMain from "./components/Header/HeaderMain.vue";
-
-@Options({
-  components: {
-    HeaderMain,
-  },
-})
-export default class App extends Vue {}
+<script setup lang="ts">
+import HeaderMain from "@/components/Header/HeaderMain.vue";
 </script>
 
 <style lang="scss">
@@ -31,5 +23,18 @@ body {
 
 #app {
   height: 100%;
+}
+
+.panel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+  color: var(--text-color);
+  &__block {
+    padding: 3%;
+    width: 80%;
+    background-color: var(--surface-0);
+  }
 }
 </style>

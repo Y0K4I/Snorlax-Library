@@ -1,9 +1,9 @@
 <template>
-  <div class="home"></div>
+  <section class="panel">
+    <PokemonsList />
+  </section>
 </template>
 
-<script lang="ts">
-import { Vue } from "vue-property-decorator";
-
-export default class HomeView extends Vue {}
+<script setup lang="ts">
+import PokemonsList from "@/components/Pokemons/PokemonsList.vue";
 </script>
