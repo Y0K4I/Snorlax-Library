@@ -21,5 +21,4 @@ createApp(App)
   .component("ScrollPanel", ScrollPanel)
   .component("ScrollTop", ScrollTop)
   .component("Toast", Toast)
-
   .mount("#app");

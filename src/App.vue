@@ -35,6 +35,7 @@ body {
     padding: 3%;
     width: 80%;
     background-color: var(--surface-0);
+    border-radius: 7px;
   }
 }
 </style>
