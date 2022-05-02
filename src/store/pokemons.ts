@@ -10,10 +10,10 @@ export const usePokemonsStore = defineStore("pokemons", {
     };
   },
   getters: {
-    getPokemonsCards() {
+    getPokemonsCards(state): IPokemonCard[] {
       const cards: IPokemonCard[] = [];
 
-      this.list.forEach((pokemon) => {
+      state.list.forEach((pokemon) => {
         cards.push({
           name: pokemon.name,
           image: pokemon.sprites.front_default,
@@ -22,6 +22,11 @@ export const usePokemonsStore = defineStore("pokemons", {
       });
 
       return cards;
+    },
+
+    getPokemonById(state): (id: number) => Pokemon {
+      return (id: number) =>
+        state.list.find((pokemon) => pokemon.id === id) as Pokemon;
     },
   },
   actions: {

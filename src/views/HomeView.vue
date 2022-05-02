@@ -1,7 +1,7 @@
 <template>
-  <section class="panel">
+  <div class="panel">
     <PokemonsList />
-  </section>
+  </div>
 </template>
 
 <script setup lang="ts">
