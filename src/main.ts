@@ -12,6 +12,8 @@ import Image from "primevue/image";
 import Card from "primevue/card";
 import Paginator from "primevue/paginator";
 import Skeleton from "primevue/skeleton";
+import AutoComplete from "primevue/autocomplete";
+import Button from "primevue/button";
 
 import App from "./App.vue";
 import router from "./router";
@@ -27,5 +29,6 @@ createApp(App)
   .component("Card", Card)
   .component("Paginator", Paginator)
   .component("Skeleton", Skeleton)
-
+  .component("AutoComplete", AutoComplete)
+  .component("Button", Button)
   .mount("#app");

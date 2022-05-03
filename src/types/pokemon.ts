@@ -1,4 +1,4 @@
-interface IPokemonInfo {
+export interface IPokemonInfo {
   name: string;
   url: string;
 }

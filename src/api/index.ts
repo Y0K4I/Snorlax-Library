@@ -23,7 +23,7 @@ api.interceptors.response.use(
 
 // Unknown type of useToast()
 export const checkApiError = (result: unknown, toast: any) => {
-  if ((result as IApiError).error) {
+  if ((result as IApiError)?.error) {
     toast.add({
       severity: "error",
       summary: "Error Message",

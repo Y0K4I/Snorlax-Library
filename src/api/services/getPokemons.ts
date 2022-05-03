@@ -40,12 +40,14 @@ export const getPokemons = (limit: number, offset: number) => {
           globalStore.setIsLoading(false);
         })
         .catch((err: IApiError) => {
+          globalStore.setIsLoading(false);
           return err;
         });
 
       return pokemonsData;
     })
     .catch((err: IApiError) => {
+      globalStore.setIsLoading(false);
       return err;
     });
 };

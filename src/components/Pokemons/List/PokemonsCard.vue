@@ -79,10 +79,12 @@ globalStore.$subscribe((value: any) => {
   &__title {
     display: flex;
     justify-content: center;
+    font-size: 20px;
   }
   &__subtitle {
     display: flex;
     justify-content: center;
+    font-size: 14px;
     &__text {
       width: 80px;
       display: flex;
@@ -95,7 +97,7 @@ globalStore.$subscribe((value: any) => {
     }
   }
   &__image {
-    padding-top: 30px;
+    padding-top: 35px;
     img {
       width: 96px;
       height: 96px;
