@@ -1,15 +1,15 @@
-interface IPokemonInfo {
+export interface IPokemonInfo {
   name: string;
   url: string;
 }
 
-interface IAbilities {
+interface IAbility {
   ability: IPokemonInfo;
   is_hidden: boolean;
   slot: number;
 }
 
-interface IGameIndices {
+interface IGameIndex {
   game_index: number;
   version: IPokemonInfo;
 }
@@ -19,7 +19,7 @@ interface IVersionDetails {
   version: IPokemonInfo;
 }
 
-interface IHeldItems {
+interface IHeldItem {
   item: IPokemonInfo;
   version_details: IVersionDetails;
 }
@@ -29,12 +29,12 @@ interface IVersionGroupDetails {
   move_learn_method: IPokemonInfo;
 }
 
-interface IMoves {
+interface IMove {
   move: IPokemonInfo;
   version_group_details: IVersionGroupDetails;
 }
 
-interface ISprites {
+interface ISprite {
   back_default: string | null;
   back_female: string | null;
   back_shiny: string | null;
@@ -45,37 +45,43 @@ interface ISprites {
   front_shiny_female: string | null;
 }
 
-interface IStats {
+interface IStat {
   base_stat: number;
   effort: number;
   stat: IPokemonInfo;
 }
 
-interface ITypes {
+interface IType {
   slot: number;
   type: IPokemonInfo;
 }
 
 export interface IPokemon {
-  abilities: IAbilities[];
+  abilities: IAbility[];
   base_experience: number;
   forms: IPokemonInfo[];
-  game_indices: IGameIndices[];
+  game_indices: IGameIndex;
   height: number;
-  held_items: IHeldItems[];
+  held_items: IHeldItem[];
   id: number;
   is_default: boolean;
   location_area_encounters: string;
-  moves: IMoves[];
+  moves: IMove[];
   name: string;
   order: number;
   // TODO: find and change type!
   past_types: unknown[];
   species: IPokemonInfo;
-  sprites: ISprites;
-  stats: IStats[];
-  types: ITypes[];
+  sprites: ISprite;
+  stats: IStat[];
+  types: IType[];
   weight: number;
 }
 
-export type Pokemon = IPokemon | IPokemonInfo;
+export interface IPokemonCard {
+  name: string;
+  image: string | null;
+  types: IType[];
+}
+
+export type Pokemon = IPokemon;

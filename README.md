@@ -1,4 +1,4 @@
-# pokedex
+# snorlax-library
 
 ## Project setup
 ```
