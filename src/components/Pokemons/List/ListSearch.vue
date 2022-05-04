@@ -1,5 +1,6 @@
 <template>
   <form>
+    <div class="auto-complete"></div>
     <span class="p-float-label">
       <AutoComplete
         v-model="selectedName"
@@ -52,6 +53,21 @@ const searchPokemons = (event: any) => {
   &:hover {
     border-color: var(--blue-300);
     background-color: var(--blue-300);
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .p-float-label {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .p-button {
+      width: 100%;
+      height: 100px;
+      margin-top: 20px;
+      margin-left: 0;
+    }
   }
 }
 </style>

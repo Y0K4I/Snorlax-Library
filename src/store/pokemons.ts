@@ -25,9 +25,9 @@ export const usePokemonsStore = defineStore("pokemons", {
       return cards;
     },
 
-    getPokemonById(state): (id: number) => Pokemon {
-      return (id: number) =>
-        state.list.find((pokemon) => pokemon.id === id) as Pokemon;
+    getPokemonByName(state): (name: string) => Pokemon {
+      return (name: string) =>
+        state.list.find((pokemon) => pokemon.name === name) as Pokemon;
     },
 
     getPokemonsNames(state) {

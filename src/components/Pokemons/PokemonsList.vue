@@ -2,17 +2,17 @@
   <div class="pokemons">
     <Toast position="bottom-right" />
     <div class="pokemons__search">
-      <PokemonsSearch
+      <ListSearch
         :names="names"
         @filter="filterPokemons"
         @reset="resetFilter"
       />
     </div>
     <div class="pokemons__list">
-      <PokemonsCard v-for="card in cards" :key="card.name" :card="card" />
+      <ListCard v-for="card in cards" :key="card.name" :card="card" />
     </div>
     <div class="pokemons__pagination">
-      <PokemonsPagination
+      <ListPagination
         :limit="pagination.limit"
         :offset="pagination.offset"
         :total-cards="totalCards"
@@ -31,17 +31,19 @@
 import { onBeforeMount, reactive, ref } from "vue";
 import { useToast } from "primevue/usetoast";
 
-import PokemonsCard from "@/components/Pokemons/List/PokemonsCard.vue";
-import PokemonsSearch from "@/components/Pokemons/List/PokemonsSearch.vue";
-import PokemonsPagination from "@/components/Pokemons/List/PokemonsPagination.vue";
+import ListCard from "@/components/Pokemons/List/ListCard.vue";
+import ListSearch from "@/components/Pokemons/List/ListSearch.vue";
+import ListPagination from "@/components/Pokemons/List/ListPagination.vue";
 import { IPokemonCard, Pokemon } from "@/types/pokemon";
 import { getPokemons } from "@/api/services/getPokemons";
 import { getPokemonsNames } from "@/api/services/getPokemonsNames";
 import { checkApiError } from "@/api";
 import { usePokemonsStore } from "@/store/pokemons";
 import { getPokemon } from "@/api/services/getPokemon";
+import { useGlobalStore } from "@/store/global";
 
 const pokemonsStore = usePokemonsStore();
+const globalStore = useGlobalStore();
 const toast = useToast();
 
 const cards = ref([] as IPokemonCard[]);
@@ -84,11 +86,13 @@ const filterPokemons = async (value: string[]) => {
   isFiltered.value = true;
   pagination.offset = 0;
 
+  globalStore.setIsLoading(true);
   for (const name of value) {
     const pokemon = (await getPokemon(name)) as Pokemon;
 
     filteredPokemons.push(pokemon);
   }
+  globalStore.setIsLoading(false);
 
   pokemonsStore.setPokemons(value.length, filteredPokemons);
   await fetchFilteredPokemons(pagination.limit, pagination.offset);
@@ -126,6 +130,8 @@ onBeforeMount(() => {
     justify-content: center;
   }
   &__search {
+    display: flex;
+    flex-wrap: wrap;
     padding-bottom: 20px;
   }
 }
