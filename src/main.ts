@@ -14,6 +14,8 @@ import Paginator from "primevue/paginator";
 import Skeleton from "primevue/skeleton";
 import AutoComplete from "primevue/autocomplete";
 import Button from "primevue/button";
+import Breadcrumb from "primevue/breadcrumb";
+import ProgressBar from "primevue/progressbar";
 
 import App from "./App.vue";
 import router from "./router";
@@ -31,4 +33,6 @@ createApp(App)
   .component("Skeleton", Skeleton)
   .component("AutoComplete", AutoComplete)
   .component("Button", Button)
+  .component("Breadcrumb", Breadcrumb)
+  .component("ProgressBar", ProgressBar)
   .mount("#app");

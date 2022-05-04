@@ -1,35 +1,38 @@
 <template>
-  <Card v-if="!isLoading">
-    <template #header>
-      <div class="p-card__image">
-        <Image
-          :src="props.card.image"
-          v-if="props.card.image"
-          width="96"
-          height="96"
-          alt="image not found!"
-        />
-        <img src="@/assets/images/npokemon.png" alt="ERROR!!!" v-else />
-      </div>
-    </template>
-    <template #title>
-      <div class="p-card__title">
-        {{ pokemonName }}
-      </div>
-    </template>
-    <template #subtitle>
-      <div class="p-card__subtitle">
-        <div
-          class="p-card__subtitle__text"
-          v-for="type in props.card.types"
-          :key="type"
-          :style="{ backgroundColor: TypesColors[type.type.name] }"
-        >
-          {{ type.type.name }}
+  <router-link :to="pokemonRoute" v-if="!isLoading">
+    <Card>
+      <template #header>
+        <div class="p-card__image">
+          <Image
+            :src="props.card.image"
+            v-if="props.card.image"
+            width="96"
+            height="96"
+            alt="image not found!"
+          />
+          <img src="@/assets/images/npokemon.png" alt="ERROR!!!" v-else />
         </div>
-      </div>
-    </template>
-  </Card>
+      </template>
+      <template #title>
+        <div class="p-card__title">
+          {{ pokemonName }}
+        </div>
+      </template>
+      <template #subtitle>
+        <div class="p-card__subtitle">
+          <div
+            class="p-card__subtitle__text"
+            v-for="type in props.card.types"
+            :key="type"
+            :style="{ backgroundColor: TypesColors[type.type.name] }"
+          >
+            {{ type.type.name }}
+          </div>
+        </div>
+      </template>
+    </Card>
+  </router-link>
+
   <div class="skeleton-loading" v-else>
     <Skeleton size="250px" />
   </div>
@@ -61,9 +64,16 @@ globalStore.$subscribe((value: any) => {
     isLoading.value = events.newValue;
   }
 });
+
+const pokemonRoute = computed(() => {
+  return pokemonName.value.toLowerCase();
+});
 </script>
 
 <style scoped lang="scss">
+a {
+  text-decoration: none;
+}
 .p-card {
   width: 250px;
   height: 250px;
