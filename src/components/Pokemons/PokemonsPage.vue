@@ -122,7 +122,7 @@ onBeforeMount(() => {
       }
     }
     &__stats {
-      width: 50%;
+      width: 80%;
       .p-progressbar {
         height: 50px;
         margin-top: 20px;
